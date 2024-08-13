@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { isAdmin } = require('../middlewares/authMiddleware')
+const { isAdmin } = require('../middlewares/authJWT')
 
 const order = require('../controllers/order.controller');
 

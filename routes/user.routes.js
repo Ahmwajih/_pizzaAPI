@@ -6,7 +6,7 @@ const { register, login, logout } = require('../controllers/auth.controller');
 
 const user  = require('../controllers/user.controller');
 
-const  { isAdmin } = require('../middlewares/authMiddleware')
+const  { isAdmin } = require('../middlewares/authJWT')
 
 
 router.post('/register', user.register);
