@@ -1,6 +1,7 @@
 const  mongoose  =  require('mongoose');
-
-const dbConnnection = function(){
+const dotenv = require('dotenv');
+dotenv.config();
+const dbConnection = function(){
     mongoose.connect(process.env.MONGODB)
     .then(() => {
         console.log('**Connected to MongoDB**');
@@ -12,5 +13,5 @@ const dbConnnection = function(){
 
 module.exports = {
     mongoose,
-    dbConnnection
+    dbConnection
 };
