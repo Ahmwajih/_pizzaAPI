@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const User = require('../models/user.model');
+const User = require('../models/user');
 const pwEncrypt = require('../helpers/passEncrypt');
 
 module.exports = async (userData, withRefresh = true) => {

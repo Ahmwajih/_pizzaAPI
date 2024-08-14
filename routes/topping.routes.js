@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { isAdmin } = require('../middlewares/authJWT')
+const { isAdmin } = require('../middlewares/authMiddleware')
 
 
 router.route('/topping')

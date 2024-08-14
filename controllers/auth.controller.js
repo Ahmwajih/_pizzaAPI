@@ -1,16 +1,13 @@
 const jwt = require('jsonwebtoken');
-
 const User = require('../models/user');
-
-const passENcrypt = require('../helpers/passEncrypt');
-
-const  tokenUser = require('../helpers/tokenUser');
+const passEncrypt = require('../helpers/passEncrypt');
+const tokenUser = require('../helpers/tokenUser');
 
 module.exports = {
     register: async (req, res) => {
         const { username, password } = req.body;
         if (username && password) {
-            const user = await User.findOne ({ username });
+            const user = await User.findOne({ username });
             if (!user) {
                 const newUser = await User.create({
                     username,
@@ -27,6 +24,11 @@ module.exports = {
                     message: 'Username already exists'
                 });
             }
+        } else {
+            res.status(400).send({
+                error: true,
+                message: 'Username and password are required'
+            });
         }
     },
 
@@ -42,7 +44,12 @@ module.exports = {
                     error: true,
                     message: 'Invalid username or password'
                 });
-            }   
+            }
+        } else {
+            res.status(400).send({
+                error: true,
+                message: 'Username and password are required'
+            });
         }
     },
 
@@ -52,5 +59,4 @@ module.exports = {
             message: 'Logout success'
         });
     },
-    
 };

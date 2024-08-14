@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const Topping = require("./topping");
 const pizzaSchema = new mongoose.Schema(
@@ -23,13 +23,14 @@ const pizzaSchema = new mongoose.Schema(
         message: "{VALUE} is not an integer value",
       },
     },
-    toppings: {
-      type: mongoose.Schema.types.objectId,
-      ref: "Topping",
-      required: true,
-    },
+    toppings: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Topping",
+        required: true,
+      },
+    ],
   },
-
   { collection: "pizzas", timestamps: true }
 );
 

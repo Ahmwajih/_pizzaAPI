@@ -1,6 +1,5 @@
 module.exports = async (req, res, next) => {
-
-    const user = require('../models/user.model');
+    const User = require('../models/user.model');
 
     if (req.session.id) {
         const user = await User.findOne({ _id: req.session.id, password: req.session.password });
@@ -11,5 +10,4 @@ module.exports = async (req, res, next) => {
         }
     }
     next();
-}
-
+};

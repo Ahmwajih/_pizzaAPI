@@ -1,4 +1,4 @@
-const { nongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
@@ -22,7 +22,6 @@ const userSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid email!`,
       },
     },
-
     password: {
       type: String,
       required: true,
@@ -34,12 +33,10 @@ const userSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid password!`,
       },
     },
-
     isActive: {
       type: Boolean,
       default: true,
     },
-
     isAdmin: {
       type: Boolean,
       default: false,
@@ -50,4 +47,4 @@ const userSchema = new mongoose.Schema(
 
 const User = mongoose.model("User", userSchema);
 
-module.exports = User;
+module.exports

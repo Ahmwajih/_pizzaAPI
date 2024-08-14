@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const toppingSchema = new mongoose.Schema(
   {
@@ -10,7 +10,7 @@ const toppingSchema = new mongoose.Schema(
       lowercase: true,
     },
   },
-  { collection: "Toppings", timestamps: true }
+  { collection: "toppings", timestamps: true }
 );
 
 const Topping = mongoose.model("Topping", toppingSchema);

@@ -1,11 +1,10 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 
+router.use('/users', require('./user.routes'));
+router.use('/pizzas', require('./pizza.routes'));
+router.use('/toppings', require('./topping.routes'));
+router.use('/orders', require('./order.routes'));
 router.use('/auth', require('./auth.routes'));
-router.use('/user', require('./user.routes'));
-router.use('/pizza', require('./pizza.routes'));
-router.use('/topping', require('./topping.routes'));
-router.use('/order', require('./order.routes'));
-
 
 module.exports = router;
-
