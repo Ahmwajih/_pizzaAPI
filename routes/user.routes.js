@@ -11,7 +11,7 @@ router.all('/logout', logout);
 
 router.route('/')
     .get(isAdmin, user.getAllUsers)
-    .post(isAdmin, user.createUser);
+    .post(user.createUser);
 
 router.route('/:id')
     .get(isAdmin, user.getUser)
